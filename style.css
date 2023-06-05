@@ -8,6 +8,18 @@
     --border-radius: 3px;
 }
 
+body {
+    padding: 0;
+    margin: 0;
+}
+
+html, body, #map {
+    height: 100vh;
+    width: 98vw;
+    background: var(--map-bg-colour);
+
+}
+
 
 #map-container {
     position:relative;
@@ -18,11 +30,6 @@
     top: 10px;
     right: 10px;
     z-index: 999;
-}
-
-#map {
-    height: 100vh;
-    background: var(--map-bg-colour);
 }
 
 
