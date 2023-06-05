@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="third-party/leaflet/leaflet.min.css">
+    <script src="third-party/leaflet/leaflet.min.js"></script>
+
+    <link rel="stylesheet" href="third-party/leaflet.markercluster/MarkerCluster.css">
+    <script src="third-party/leaflet.markercluster/leaflet.markercluster.min.js"></script>
+
+    <script src="third-party/jquery/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="style.css">
+    <script src="index.js"></script>
+
+    <title>TotK Map</title>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="d-flex">
+            <div class="col">
+                <div id="map-container">
+                    <div id="map"></div>
+                    <button class="btn btn-secondary" id="sidebar-toggle" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebar">Open Sidebar</button>
+
+                </div>
+            </div>
+
+            <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="sidebar">
+
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title">Sidebar</h5>
+                    <button type="button" class="btn-close-white text-reset btn-secondary" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+
+                <div class="offcanvas-body">
+                    
+                    <div class="d-grid gap-2">
+                        <button id="show-layer-sky" type="button" class="btn btn-outline-light" data-bs-dismiss="offcanvas">Sky</button>
+                        <button id="show-layer-surface" type="button" class="btn btn-outline-light" data-bs-dismiss="offcanvas">Surface</button>
+                        <button id="show-layer-depths" type="button" class="btn btn-outline-light" data-bs-dismiss="offcanvas">Depths</button>
+                    </div>
+
+                    <div class="input-group my-3 justify-content-center">
+                        <div id="coordinate-input">
+                            <input id="x-coordinate" type="number" class="form-control" placeholder="X coordinate">
+                            <input id="y-coordinate" type="number" class="form-control" placeholder="Y coordinate">
+                        </div>
+                        <button id="submit-coordinates" type="button" class="btn btn-outline-light" data-bs-dismiss="offcanvas">Place Marker</button>
+                    </div>
+
+                    <div>
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" role="switch" id="place-marker" data-bs-dismiss="offcanvas">
+                            <label class="form-check-label" for="place-marker">Place custom marker on click</label>
+                        </div>
+                    </div>
+
+                    <div class="d-grid my-3">
+                        <button id="clear-markers" type="button" class="btn btn-warning">Clear Markers</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>  
+</body>
+</html>

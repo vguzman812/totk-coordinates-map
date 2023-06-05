@@ -1,0 +1,29 @@
+:root {
+    --bg-colour: #2e2e2e;
+    --map-bg-colour: #000000;
+    --text-colour: #efefef;
+    --gray-text-colour: #afafaf;
+    --divider-colour: #3e3e3e;
+    --divider-thickness: 2px;
+    --border-radius: 3px;
+}
+
+
+#map-container {
+    position:relative;
+}
+
+#sidebar-toggle {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 999;
+}
+
+#map {
+    height: 100vh;
+    background: var(--map-bg-colour);
+}
+
+
+
