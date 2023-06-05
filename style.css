@@ -1,17 +1,9 @@
 :root {
     --bg-colour: #2e2e2e;
     --map-bg-colour: #000000;
-    --text-colour: #efefef;
-    --gray-text-colour: #afafaf;
-    --divider-colour: #3e3e3e;
-    --divider-thickness: 2px;
-    --border-radius: 3px;
 }
 
-body {
-    padding: 0;
-    margin: 0;
-}
+
 
 html, body, #map {
     height: 90vh;
@@ -21,9 +13,6 @@ html, body, #map {
 }
 
 
-#map-container {
-    position:relative;
-}
 
 
 
