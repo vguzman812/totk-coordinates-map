@@ -4,10 +4,10 @@ window.addEventListener('load', () => {
     // Initialize the map using Leaflet.js
     var map = L.map('map', {
         preferCanvas: true,
-        minZoom: -4,
+        minZoom: -7,
         maxZoom: 4,
         center: [0, 0],
-        zoom: -4,
+        zoom: -5,
         cursor: true,
         crs: L.CRS.Simple, // Specifies that the map uses simple Cartesian coordinates
     });
