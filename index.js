@@ -145,6 +145,62 @@ window.addEventListener('load', () => {
     // Attach the function to a button click
     $('#clear-markers').click(clearMarkers);
 
+    // Array to hold the grid lines
+    let gridLines = [];
 
+    // Function to clear all grid lines
+    function clearGridLines() {
+        for (let i = 0; i < gridLines.length; i++) {
+            map.removeLayer(gridLines[i]);
+        }
+        gridLines = [];
+    }
+
+    // Attach the function to a button click
+    $('#clear-grid').click(clearGridLines);
+
+    // Function to draw a grid on the map
+    function drawGrid(map, interval=1000) {
+        // Clear the old grid lines
+        clearGridLines();
+
+        // Define the interval at which to draw grid lines
+        var gridInterval = interval;
+
+        // Get the bounds of the map
+        var mapBounds = map.getBounds();
+        var west = mapBounds.getWest();
+        var east = mapBounds.getEast();
+        var south = mapBounds.getSouth();
+        var north = mapBounds.getNorth();
+
+        // Calculate the number of horizontal and vertical lines
+        var horizontalLines = Math.ceil((east - west) / gridInterval);
+        var verticalLines = Math.ceil((north - south) / gridInterval);
+
+        // Draw the horizontal lines
+        for (var i = 0; i <= horizontalLines; i++) {
+            var x = west + i * gridInterval;
+            var horizontalLine = L.polyline([[south, x], [north, x]], {color: 'white', weight: 1}).addTo(map);
+            gridLines.push(horizontalLine);
+        }
+
+        // Draw the vertical lines
+        for (var j = 0; j <= verticalLines; j++) {
+            var y = south + j * gridInterval;
+            var verticalLine = L.polyline([[y, west], [y, east]], {color: 'white', weight: 1}).addTo(map);
+            gridLines.push(verticalLine);
+        }
+    }
+
+    // Event listener for 'show-grid' button click
+    $('#show-grid-500').click(function () {
+        // Draw the grid on the map at 500 spacing
+        drawGrid(map, 500);
+    });
+    $('#show-grid-1000').click(function () {
+        // Draw the grid on the map at 1000 spacing
+        drawGrid(map, 1000);
+    });
 
 });
